@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import net.jahez.jahezchallenge.data.entities.Result
 import androidx.navigation.NavController
 import com.google.android.material.snackbar.Snackbar
 import net.jahez.jahezchallenge.R
@@ -19,6 +20,16 @@ abstract class BaseFragment : Fragment() {
         mBaseViewModel = baseViewModel
         baseViewModel.dataLoading.observe(this, {
             showLoading(it)
+        })
+
+        baseViewModel.error.observe(this, {
+            when (it) {
+                is Result.NetworkError -> showError(getString(R.string.error_network))
+                is Result.ServerError -> showError(getString(R.string.error_connection_failed))
+                is Result.ClientError -> showError("Message that should return from webservice response")
+                is Result.AuthenticationError -> showError(getString(R.string.error_unauthorized_user))
+                else -> showError(getString(R.string.error_connection_failed))
+            }
         })
     }
 

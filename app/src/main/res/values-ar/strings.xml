@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Jahez Challenge</string>
     <string name="label_dismiss">إلغاء</string>
+    <string name="error_network">فشل الاتصال بالخادم</string>
+    <string name="error_connection_failed">خطأ غير متوقع بالرجاء الاتصال بمدير النظام</string>
+    <string name="error_unauthorized_user">انتهت صلاحية الجلسة</string>
 </resources>
