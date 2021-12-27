@@ -4,4 +4,9 @@
     <string name="error_network">Failed to connect to server</string>
     <string name="error_connection_failed">Unexpected error please call system manager</string>
     <string name="error_unauthorized_user">Session expired</string>
+    <string name="label_offers">Offers</string>
+    <string name="label_distance">Distance</string>
+    <string name="label_all">All</string>
+    <string name="label_restaurants_list">Restaurants List</string>
+    <string name="label_settings">Settings</string>
 </resources>

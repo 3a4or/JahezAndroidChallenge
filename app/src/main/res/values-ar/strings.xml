@@ -4,4 +4,9 @@
     <string name="error_network">فشل الاتصال بالخادم</string>
     <string name="error_connection_failed">خطأ غير متوقع بالرجاء الاتصال بمدير النظام</string>
     <string name="error_unauthorized_user">انتهت صلاحية الجلسة</string>
+    <string name="label_offers">عروض</string>
+    <string name="label_distance">المسافة</string>
+    <string name="label_all">الكل</string>
+    <string name="label_restaurants_list">قائمة المطاعم</string>
+    <string name="label_settings">الإعدادات</string>
 </resources>
