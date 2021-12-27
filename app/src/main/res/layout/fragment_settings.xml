@@ -5,16 +5,96 @@
             name="viewModel"
             type="net.jahez.jahezchallenge.ui.settings.SettingsViewModel" />
     </data>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingVertical="15dp"
         tools:context=".ui.settings.SettingsFragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello" />
+        <View
+            android:id="@+id/bg_lang"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/round_corner_settings_bg"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/input_lang"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title_lang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_lang"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guideline_internal_start"
+            app:layout_constraintTop_toTopOf="@id/bg_lang" />
 
-    </FrameLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_enable_lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_app_lang"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/input_lang"
+            app:layout_constraintStart_toStartOf="@id/guideline_internal_start"
+            app:layout_constraintTop_toTopOf="@id/input_lang" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_lang"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/label_lang"
+            app:endIconDrawable="@drawable/ic_dropdown"
+            app:layout_constraintEnd_toEndOf="@id/guideline_internal_end"
+            app:layout_constraintStart_toEndOf="@id/tv_enable_lang"
+            app:layout_constraintTop_toBottomOf="@id/title_lang">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/sp_lang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="none"
+                android:textColor="@color/black"
+                app:value="@={viewModel.selectedLang}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_internal_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.0729927" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_internal_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

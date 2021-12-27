@@ -6,4 +6,6 @@ object IdManager {
 
     const val SHARED_PREFERENCE = "sharedPreference"
 
+    const val APP_LANGUAGE = "appLanguage"
+
 }

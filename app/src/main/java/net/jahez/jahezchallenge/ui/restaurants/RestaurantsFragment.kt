@@ -66,6 +66,10 @@ class RestaurantsFragment : BaseFragment() {
                 ingredientsAdapter.submitList(viewModel.restaurantsList.value!!)
                 true
             }
+            R.id.action_settings -> {
+                navController.navigate(R.id.toSettingsPage)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

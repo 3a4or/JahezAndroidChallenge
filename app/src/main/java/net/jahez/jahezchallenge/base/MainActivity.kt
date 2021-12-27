@@ -9,10 +9,13 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import net.jahez.jahezchallenge.R
 import net.jahez.jahezchallenge.databinding.ActivityMainBinding
+import net.jahez.jahezchallenge.utils.AppUtils
+import net.jahez.jahezchallenge.utils.IdManager
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppUtils.setLanguage(AppUtils.getFromSharedPreference(IdManager.APP_LANGUAGE), this)
+        AppUtils.setLanguageWithoutReload(AppUtils.getFromSharedPreference(IdManager.APP_LANGUAGE), this)
         activityBaseBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityBaseBinding.root)
         setSupportActionBar(activityBaseBinding.toolbar)
@@ -62,5 +67,15 @@ class MainActivity : AppCompatActivity() {
             setActionTextColor(Color.WHITE)
             setAction(R.string.label_dismiss) { dismiss() }
         }.show()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return when (navController.currentDestination?.id) {
+            R.id.settingsFragment -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onSupportNavigateUp()
+        }
     }
 }

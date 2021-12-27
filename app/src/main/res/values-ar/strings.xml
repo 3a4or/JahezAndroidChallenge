@@ -9,4 +9,6 @@
     <string name="label_all">الكل</string>
     <string name="label_restaurants_list">قائمة المطاعم</string>
     <string name="label_settings">الإعدادات</string>
+    <string name="label_lang">اللغة</string>
+    <string name="label_app_lang">لغة التطبيق</string>
 </resources>
