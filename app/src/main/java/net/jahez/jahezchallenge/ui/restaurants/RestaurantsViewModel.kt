@@ -18,10 +18,11 @@ class RestaurantsViewModel @Inject constructor(private val repo: BaseRepository)
     fun getRestaurants() {
         viewModelScope.launch {
             dataLoading.value = true
-            when(val response = repo.getRestaurants()) {
+            restaurantsList.value = repo.getRestaurants()
+           /* when(val response = repo.getRestaurants()) {
                 is Result.Successful -> restaurantsList.value = response.data
                 is Result.BaseError -> error.value = response
-            }
+            }*/
             dataLoading.value = false
         }
     }

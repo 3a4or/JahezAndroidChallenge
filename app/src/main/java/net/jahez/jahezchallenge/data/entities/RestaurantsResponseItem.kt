@@ -1,12 +1,16 @@
 package net.jahez.jahezchallenge.data.entities
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class RestaurantsResponseItem(
-    val distance: Double,
-    val hasOffer: Boolean,
-    val hours: String,
-    val id: Int,
-    val image: String,
-    val name: String,
-    val offer: String?,
-    val rating: Double
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    var distance: Double,
+    var hasOffer: Boolean,
+    var hours: String,
+    var image: String,
+    var name: String,
+    var offer: String?,
+    var rating: Double
 )
