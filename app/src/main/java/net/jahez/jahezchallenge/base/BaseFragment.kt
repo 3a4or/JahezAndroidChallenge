@@ -8,8 +8,9 @@ import net.jahez.jahezchallenge.data.entities.Result
 import androidx.navigation.NavController
 import com.google.android.material.snackbar.Snackbar
 import net.jahez.jahezchallenge.R
+import net.jahez.jahezchallenge.base.mvp.IBaseView
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(), IBaseView {
 
     val navController: NavController by lazy {
         return@lazy (requireActivity() as MainActivity).navController
@@ -66,5 +67,17 @@ abstract class BaseFragment : Fragment() {
             setActionTextColor(Color.WHITE)
             setAction(R.string.label_dismiss) { dismiss() }
         }.show()
+    }
+
+    override fun showHideLoading(show: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showSuccessToast() {
+        showSuccess("success")
+    }
+
+    override fun showErrorToast() {
+        TODO("Not yet implemented")
     }
 }
